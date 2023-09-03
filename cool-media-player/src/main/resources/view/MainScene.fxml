@@ -10,24 +10,23 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 
-
-<AnchorPane fx:id="root" prefHeight="441.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.MainSceneController">
+<AnchorPane fx:id="root" prefHeight="441.0" prefWidth="663.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.MainSceneController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <MediaView fitHeight="200.0" fitWidth="200.0" />
+                  <MediaView fx:id="mvMyVideo" fitHeight="200.0" fitWidth="200.0" />
                   <VBox alignment="BOTTOM_CENTER" prefHeight="482.0" prefWidth="664.0" StackPane.alignment="BOTTOM_CENTER">
                      <children>
-                        <Slider>
+                        <Slider fx:id="slrSeek" onMouseDragged="#slrSeekOnMouseDragged" onMousePressed="#slrSeekOnMousePressed">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" />
                            </VBox.margin>
                         </Slider>
                         <HBox prefHeight="53.0" prefWidth="663.0">
                            <children>
-                              <Button fx:id="btnChooseFile" mnemonicParsing="false" onAction="#btnChooseFileOnACtion" text="Choose File">
+                              <Button fx:id="btnChooseFile" mnemonicParsing="false" onAction="#btnChooseFileOnAction" text="Choose File">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
@@ -47,27 +46,27 @@
                                     <Insets left="5.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button layoutX="206.0" layoutY="10.0" mnemonicParsing="false" text="&lt;&lt;">
+                              <Button fx:id="btnSlow" layoutX="206.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnSlowOnAction" text="&lt;&lt;">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button layoutX="254.0" layoutY="10.0" mnemonicParsing="false" text="&gt;&gt;">
+                              <Button fx:id="btnFast" layoutX="254.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnFastOnAction" text="&gt;&gt;">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button layoutX="294.0" layoutY="10.0" mnemonicParsing="false" text="-10s">
-                                 <HBox.margin>
+                              <Button fx:id="btnBackward" layoutX="294.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnBackwardOnAction" text="-10s">
+                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button layoutX="334.0" layoutY="10.0" mnemonicParsing="false" text="+10s">
+                              <Button fx:id="btnForward" layoutX="334.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnForwardOnAction" text="+10s">
                                  <HBox.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </HBox.margin>
                               </Button>
-                              <Slider prefHeight="16.0" prefWidth="159.0">
+                              <Slider fx:id="slrVolume" onMouseDragged="#slrVolumeOnMouseDragged" onMousePressed="#slrVolumeOnMousePressed" prefHeight="16.0" prefWidth="159.0">
                                  <HBox.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </HBox.margin>
