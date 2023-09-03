@@ -37,12 +37,13 @@ public class MainSceneController {
     public Slider slrVolume;
     public ImageView imgBackground;
     public Label lblTitle;
+    public Label lblVolume;
 
     private String path;
     private MediaPlayer mediaPlayer;
 
     public void initialize() {
-        slrVolume.setValue(50.0);
+        slrVolume.setValue(100.0);
         lblTitle.setVisible(true);
         imgBackground.setDisable(false);
     }
@@ -56,11 +57,11 @@ public class MainSceneController {
         if (file != null) {
             path = file.toURI().toString();
             mvMyVideo.setVisible(true);
-            lblTitle.setVisible(false);
             imgBackground.setDisable(true);
             Media media = new Media(path);
             mediaPlayer = new MediaPlayer(media);
             mvMyVideo.setMediaPlayer(mediaPlayer);
+            mediaPlayer.setVolume(slrVolume.getValue() * 100);
             DoubleProperty widthProperty = mvMyVideo.fitWidthProperty();
             DoubleProperty heightProperty = mvMyVideo.fitHeightProperty();
             widthProperty.bind(Bindings.selectDouble(mvMyVideo.sceneProperty(), "width"));
@@ -90,7 +91,6 @@ public class MainSceneController {
     public void btnPlayOnAction(ActionEvent actionEvent) {
         if (path != null) {
             mvMyVideo.setVisible(true);
-            lblTitle.setVisible(false);
             imgBackground.setDisable(true);
             mediaPlayer.play();
             mediaPlayer.setRate(1.0);
@@ -145,9 +145,12 @@ public class MainSceneController {
 
     public void slrVolumeOnMouseDragged(MouseEvent mouseEvent) {
         mediaPlayer.setVolume(slrVolume.getValue() / 100);
+        lblVolume.setText(String.format("%.0f",slrVolume.getValue()).concat("%"));
+
     }
 
     public void slrVolumeOnMousePressed(MouseEvent mouseEvent) {
         mediaPlayer.setVolume(slrVolume.getValue() / 100);
+        lblVolume.setText(String.format("%.0f",slrVolume.getValue()).concat("%"));
     }
 }
