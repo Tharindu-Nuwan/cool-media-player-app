@@ -9,6 +9,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
@@ -32,16 +33,23 @@ public class MainSceneController {
     public Button btnForward;
     public Slider slrSeek;
     public Slider slrVolume;
+    public ImageView imgBackground;
 
     private String path;
     private MediaPlayer mediaPlayer;
 
+    public void initialize() {
+        slrVolume.setValue(50.0);
+        imgBackground.setDisable(false);
+    }
     public void btnChooseFileOnAction(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(null);
         path = file.toURI().toString();
 
         if (path != null) {
+            mvMyVideo.setVisible(true);
+            imgBackground.setDisable(true);
             Media media = new Media(path);
             mediaPlayer = new MediaPlayer(media);
             mvMyVideo.setMediaPlayer(mediaPlayer);
@@ -64,18 +72,14 @@ public class MainSceneController {
                     slrSeek.setMax(totalDuration.toSeconds());
                 }
             });
-
-            slrVolume.setValue(mediaPlayer.getVolume() * 100);
-            slrVolume.valueProperty().addListener(new InvalidationListener() {
-                @Override
-                public void invalidated(Observable observable) {
-                    mediaPlayer.setVolume(slrVolume.getValue() / 100);
-                }
-            });
+        }else {
+            imgBackground.setDisable(false);
         }
     }
 
     public void btnPlayOnAction(ActionEvent actionEvent) {
+        mvMyVideo.setVisible(true);
+        imgBackground.setDisable(true);
         mediaPlayer.play();
         mediaPlayer.setRate(1.0);
     }
@@ -86,6 +90,8 @@ public class MainSceneController {
 
     public void btnStopOnAction(ActionEvent actionEvent) {
         mediaPlayer.stop();
+        mvMyVideo.setVisible(false);
+        imgBackground.setDisable(false);
     }
 
     public void btnSlowOnAction(ActionEvent actionEvent) {
@@ -113,8 +119,10 @@ public class MainSceneController {
     }
 
     public void slrVolumeOnMouseDragged(MouseEvent mouseEvent) {
+        mediaPlayer.setVolume(slrVolume.getValue() / 100);
     }
 
     public void slrVolumeOnMousePressed(MouseEvent mouseEvent) {
+        mediaPlayer.setVolume(slrVolume.getValue() / 100);
     }
 }
