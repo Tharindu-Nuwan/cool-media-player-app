@@ -48,10 +48,10 @@ public class MainSceneController {
     }
     public void btnChooseFileOnAction(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
-        File file = fileChooser.showOpenDialog(null);
-        path = file.toURI().toString();
+        File file = fileChooser.showOpenDialog(root.getScene().getWindow());
 
-        if (path != null) {
+        if (file != null) {
+            path = file.toURI().toString();
             mvMyVideo.setVisible(true);
             lblTitle.setVisible(false);
             imgBackground.setDisable(true);
@@ -78,6 +78,8 @@ public class MainSceneController {
                 }
             });
         }else {
+            path = null;
+            lblTitle.setVisible(true);
             imgBackground.setDisable(false);
         }
     }
@@ -122,11 +124,20 @@ public class MainSceneController {
     }
 
     public void slrSeekOnMousePressed(MouseEvent mouseEvent) {
-        mediaPlayer.seek(Duration.seconds(slrSeek.getValue()));
+        if (path != null) {
+            mediaPlayer.seek(Duration.seconds(slrSeek.getValue()));
+        }else {
+            slrSeek.setValue(0);
+        }
     }
 
     public void slrSeekOnMouseDragged(MouseEvent mouseEvent) {
-        mediaPlayer.seek(Duration.seconds(slrSeek.getValue()));
+
+        if (path != null) {
+            mediaPlayer.seek(Duration.seconds(slrSeek.getValue()));
+        }else {
+            slrSeek.setValue(0);
+        }
     }
 
     public void slrVolumeOnMouseDragged(MouseEvent mouseEvent) {
