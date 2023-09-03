@@ -48,6 +48,9 @@ public class MainSceneController {
     }
     public void btnChooseFileOnAction(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Video Files", "*.mp4", "*.avi", "*.mkv"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Mp3 Files", "*.mp3"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Wave Files", "*.wav"));
         File file = fileChooser.showOpenDialog(root.getScene().getWindow());
 
         if (file != null) {
