@@ -3,6 +3,7 @@ package lk.ijse.dep11;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -16,7 +17,7 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        BorderPane root = FXMLLoader.load(getClass().getResource("/view/MainScene.fxml"));
+        AnchorPane root = FXMLLoader.load(getClass().getResource("/view/MainScene.fxml"));
         Scene mainScene = new Scene(root);
         primaryStage.setScene(mainScene);
         primaryStage.centerOnScreen();
