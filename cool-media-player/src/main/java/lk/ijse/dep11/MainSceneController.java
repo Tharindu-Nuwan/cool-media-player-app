@@ -7,7 +7,9 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -34,12 +36,14 @@ public class MainSceneController {
     public Slider slrSeek;
     public Slider slrVolume;
     public ImageView imgBackground;
+    public Label lblTitle;
 
     private String path;
     private MediaPlayer mediaPlayer;
 
     public void initialize() {
         slrVolume.setValue(50.0);
+        lblTitle.setVisible(true);
         imgBackground.setDisable(false);
     }
     public void btnChooseFileOnAction(ActionEvent actionEvent) {
@@ -49,6 +53,7 @@ public class MainSceneController {
 
         if (path != null) {
             mvMyVideo.setVisible(true);
+            lblTitle.setVisible(false);
             imgBackground.setDisable(true);
             Media media = new Media(path);
             mediaPlayer = new MediaPlayer(media);
@@ -78,10 +83,15 @@ public class MainSceneController {
     }
 
     public void btnPlayOnAction(ActionEvent actionEvent) {
-        mvMyVideo.setVisible(true);
-        imgBackground.setDisable(true);
-        mediaPlayer.play();
-        mediaPlayer.setRate(1.0);
+        if (path != null) {
+            mvMyVideo.setVisible(true);
+            lblTitle.setVisible(false);
+            imgBackground.setDisable(true);
+            mediaPlayer.play();
+            mediaPlayer.setRate(1.0);
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Choose a file to play").show();
+        }
     }
 
     public void btnPauseOnAction(ActionEvent actionEvent) {
@@ -91,6 +101,7 @@ public class MainSceneController {
     public void btnStopOnAction(ActionEvent actionEvent) {
         mediaPlayer.stop();
         mvMyVideo.setVisible(false);
+        lblTitle.setVisible(true);
         imgBackground.setDisable(false);
     }
 
