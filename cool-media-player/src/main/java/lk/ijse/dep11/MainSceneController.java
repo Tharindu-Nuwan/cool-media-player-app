@@ -7,10 +7,7 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -46,6 +43,16 @@ public class MainSceneController {
         slrVolume.setValue(100.0);
         lblTitle.setVisible(true);
         imgBackground.setDisable(false);
+        btnChooseFile.setTooltip(new Tooltip("Browse media files"));
+        btnPlay.setTooltip(new Tooltip("Play media file"));
+        btnPause.setTooltip(new Tooltip("Pause media file"));
+        btnStop.setTooltip(new Tooltip("Stop media file"));
+        btnSlow.setTooltip(new Tooltip("Play at 0.5x speed"));
+        btnFast.setTooltip(new Tooltip("Play at 2.0x speed"));
+        btnForward.setTooltip(new Tooltip("Skip 10 seconds forward"));
+        btnBackward.setTooltip(new Tooltip("Skip 10 seconds backward"));
+        slrSeek.setTooltip(new Tooltip("Seeker"));
+        slrVolume.setTooltip(new Tooltip("Volume"));
     }
     public void btnChooseFileOnAction(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
