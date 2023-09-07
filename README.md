@@ -1,6 +1,13 @@
 # Cool Media Player
 
 ---
+#### Supported Media file formats
+* .mp4
+* .avi
+* .mkv
+* .mp3
+* .wav
+---
 ### Version
 
 **0.1.0**
