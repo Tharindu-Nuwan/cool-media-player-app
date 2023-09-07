@@ -31,56 +31,80 @@
                      </image>
                   </ImageView>
                   <MediaView fx:id="mvMyVideo" fitHeight="200.0" fitWidth="200.0" />
-                  <VBox alignment="BOTTOM_CENTER" prefHeight="482.0" prefWidth="664.0" StackPane.alignment="BOTTOM_CENTER">
+                  <VBox alignment="BOTTOM_CENTER" prefHeight="457.0" prefWidth="619.0" StackPane.alignment="BOTTOM_CENTER">
                      <children>
-                        <Slider fx:id="slrSeek" onMouseDragged="#slrSeekOnMouseDragged" onMousePressed="#slrSeekOnMousePressed">
+                        <Slider fx:id="slrSeek" onMouseDragged="#slrSeekOnMouseDragged" onMousePressed="#slrSeekOnMousePressed" stylesheets="@../style/SlidersStyle.css">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" />
                            </VBox.margin>
                         </Slider>
-                        <HBox prefHeight="53.0" prefWidth="663.0">
+                        <HBox prefHeight="53.0" prefWidth="663.0" spacing="5.0">
                            <children>
-                              <Button fx:id="btnChooseFile" mnemonicParsing="false" onAction="#btnChooseFileOnAction" text="Choose File">
+                              <Button fx:id="btnChooseFile" mnemonicParsing="false" onAction="#btnChooseFileOnAction" stylesheets="@../style/ButtonsStyle.css" text="Browse" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font name="Ubuntu Bold" size="13.0" />
+                                 </font>
                               </Button>
-                              <Button fx:id="btnPlay" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnPlayOnAction" text="Play">
+                              <Button fx:id="btnPlay" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnPlayOnAction" stylesheets="@../style/ButtonsStyle.css" text="Play" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font name="Ubuntu Bold" size="13.0" />
+                                 </font>
                               </Button>
-                              <Button fx:id="btnPause" layoutX="103.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnPauseOnAction" text="Pause">
+                              <Button fx:id="btnPause" layoutX="103.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnPauseOnAction" stylesheets="@../style/ButtonsStyle.css" text="Pause" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font name="Ubuntu Bold" size="13.0" />
+                                 </font>
                               </Button>
-                              <Button fx:id="btnStop" layoutX="149.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnStopOnAction" text="Stop">
+                              <Button fx:id="btnStop" layoutX="149.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnStopOnAction" stylesheets="@../style/ButtonsStyle.css" text="Stop" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font name="Ubuntu Bold" size="13.0" />
+                                 </font>
                               </Button>
-                              <Button fx:id="btnSlow" layoutX="206.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnSlowOnAction" text="&lt;&lt;">
+                              <Button fx:id="btnSlow" layoutX="206.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnSlowOnAction" stylesheets="@../style/ButtonsStyle.css" text="0.5x" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font name="Ubuntu Bold" size="13.0" />
+                                 </font>
                               </Button>
-                              <Button fx:id="btnFast" layoutX="254.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnFastOnAction" text="&gt;&gt;">
+                              <Button fx:id="btnFast" layoutX="254.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnFastOnAction" stylesheets="@../style/ButtonsStyle.css" text="2.0x" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font name="Ubuntu Bold" size="13.0" />
+                                 </font>
                               </Button>
-                              <Button fx:id="btnBackward" layoutX="294.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnBackwardOnAction" text="-10s">
+                              <Button fx:id="btnBackward" layoutX="294.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnBackwardOnAction" stylesheets="@../style/ButtonsStyle.css" text="-10s" textFill="WHITE">
                                   <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font name="Ubuntu Bold" size="13.0" />
+                                 </font>
                               </Button>
-                              <Button fx:id="btnForward" layoutX="334.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnForwardOnAction" text="+10s">
+                              <Button fx:id="btnForward" layoutX="334.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnForwardOnAction" stylesheets="@../style/ButtonsStyle.css" text="+10s" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font name="Ubuntu Bold" size="13.0" />
+                                 </font>
                               </Button>
-                              <Slider fx:id="slrVolume" blockIncrement="1.0" onMouseDragged="#slrVolumeOnMouseDragged" onMousePressed="#slrVolumeOnMousePressed" prefHeight="16.0" prefWidth="159.0" value="100.0">
+                              <Slider fx:id="slrVolume" blockIncrement="1.0" onMouseDragged="#slrVolumeOnMouseDragged" onMousePressed="#slrVolumeOnMousePressed" prefHeight="16.0" prefWidth="159.0" stylesheets="@../style/SlidersStyle.css" value="100.0">
                                  <HBox.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </HBox.margin>

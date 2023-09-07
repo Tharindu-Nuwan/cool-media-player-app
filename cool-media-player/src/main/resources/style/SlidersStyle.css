@@ -1,0 +1,17 @@
+.slider
+{
+    -fx-background-color: #041359;
+    -fx-background-radius: 30 30 30 30;
+}
+
+.slider:hover
+{
+    -fx-background-color: #0964A7;
+    -fx-background-radius: 30 30 30 30;
+}
+
+.slider:pressed
+{
+    -fx-background-color: #1F787E;
+    -fx-background-radius: 30 30 30 30;
+}

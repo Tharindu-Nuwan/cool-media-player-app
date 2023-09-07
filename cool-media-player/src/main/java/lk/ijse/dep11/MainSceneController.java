@@ -151,13 +151,17 @@ public class MainSceneController {
     }
 
     public void slrVolumeOnMouseDragged(MouseEvent mouseEvent) {
-        mediaPlayer.setVolume(slrVolume.getValue() / 100);
-        lblVolume.setText(String.format("%.0f",slrVolume.getValue()).concat("%"));
+        if (path != null) {
+            mediaPlayer.setVolume(slrVolume.getValue() / 100);
+            lblVolume.setText(String.format("%.0f",slrVolume.getValue()).concat("%"));
+        }
 
     }
 
     public void slrVolumeOnMousePressed(MouseEvent mouseEvent) {
-        mediaPlayer.setVolume(slrVolume.getValue() / 100);
-        lblVolume.setText(String.format("%.0f",slrVolume.getValue()).concat("%"));
+        if (path != null) {
+            mediaPlayer.setVolume(slrVolume.getValue() / 100);
+            lblVolume.setText(String.format("%.0f",slrVolume.getValue()).concat("%"));
+        }
     }
 }
