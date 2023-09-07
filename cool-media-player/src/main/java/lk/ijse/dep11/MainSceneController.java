@@ -105,30 +105,42 @@ public class MainSceneController {
     }
 
     public void btnPauseOnAction(ActionEvent actionEvent) {
-        mediaPlayer.pause();
+        if (path != null){
+            mediaPlayer.pause();
+        }
     }
 
     public void btnStopOnAction(ActionEvent actionEvent) {
-        mediaPlayer.stop();
-        mvMyVideo.setVisible(false);
-        lblTitle.setVisible(true);
-        imgBackground.setDisable(false);
+        if (path != null) {
+            mediaPlayer.stop();
+            mvMyVideo.setVisible(false);
+            lblTitle.setVisible(true);
+            imgBackground.setDisable(false);
+        }
     }
 
     public void btnSlowOnAction(ActionEvent actionEvent) {
-        mediaPlayer.setRate(0.5);
+        if (path != null) {
+            mediaPlayer.setRate(0.5);
+        }
     }
 
     public void btnFastOnAction(ActionEvent actionEvent) {
-        mediaPlayer.setRate(2.0);
+        if (path != null) {
+            mediaPlayer.setRate(2.0);
+        }
     }
 
     public void btnForwardOnAction(ActionEvent actionEvent) {
-        mediaPlayer.seek(mediaPlayer.getCurrentTime().add(Duration.seconds(10)));
+        if (path != null) {
+            mediaPlayer.seek(mediaPlayer.getCurrentTime().add(Duration.seconds(10)));
+        }
     }
 
     public void btnBackwardOnAction(ActionEvent actionEvent) {
-        mediaPlayer.seek(mediaPlayer.getCurrentTime().add(Duration.seconds(-10)));
+        if (path != null) {
+            mediaPlayer.seek(mediaPlayer.getCurrentTime().add(Duration.seconds(-10)));
+        }
     }
 
     public void slrSeekOnMousePressed(MouseEvent mouseEvent) {
