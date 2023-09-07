@@ -1,7 +1,5 @@
 package lk.ijse.dep11;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.value.ChangeListener;
@@ -21,7 +19,7 @@ import java.io.File;
 
 public class MainSceneController {
     public AnchorPane root;
-    public Button btnChooseFile;
+    public Button btnBrowse;
     public Button btnPlay;
     public Button btnPause;
     public Button btnStop;
@@ -43,7 +41,7 @@ public class MainSceneController {
         slrVolume.setValue(100.0);
         lblTitle.setVisible(true);
         imgBackground.setDisable(false);
-        btnChooseFile.setTooltip(new Tooltip("Browse media files"));
+        btnBrowse.setTooltip(new Tooltip("Browse media files"));
         btnPlay.setTooltip(new Tooltip("Play media file"));
         btnPause.setTooltip(new Tooltip("Pause media file"));
         btnStop.setTooltip(new Tooltip("Stop media file"));

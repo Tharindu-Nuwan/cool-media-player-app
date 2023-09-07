@@ -25,6 +25,14 @@ public class AppInitializer extends Application {
         primaryStage.centerOnScreen();
         primaryStage.setTitle("Cool Media Player");
         primaryStage.show();
-
+        
+        mainScene.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.getClickCount() == 2) {
+                    primaryStage.setFullScreen(true);
+                }
+            }
+        });
     }
 }

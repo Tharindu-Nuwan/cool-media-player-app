@@ -40,7 +40,7 @@
                         </Slider>
                         <HBox prefHeight="53.0" prefWidth="663.0" spacing="5.0">
                            <children>
-                              <Button fx:id="btnChooseFile" mnemonicParsing="false" onAction="#btnChooseFileOnAction" stylesheets="@../style/ButtonsStyle.css" text="Browse" textFill="WHITE">
+                              <Button fx:id="btnBrowse" mnemonicParsing="false" onAction="#btnChooseFileOnAction" stylesheets="@../style/ButtonsStyle.css" text="Browse" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
