@@ -18,6 +18,8 @@ import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 public class MainSceneController {
@@ -180,12 +182,28 @@ public class MainSceneController {
         }
     }
 
+    public void rootOnDragDropped(DragEvent dragEvent) throws FileNotFoundException {
+//        List<File> files = dragEvent.getDragboard().getFiles();
+//        for (File file1 : files) {
+//            mediaPlayer = new MediaPlayer(new Media(file1.getAbsolutePath()));
+//
+//        }
+    }
 
     public void rootOnDragOver(DragEvent dragEvent) {
-//        dragEvent.acceptTransferModes(TransferMode.ANY);
+//        if (dragEvent.getDragboard().hasFiles()) {
+//            dragEvent.acceptTransferModes(TransferMode.ANY);
+//        }
     }
 
-    public void rootOnDragDropped(DragEvent dragEvent) {
-//        file = (File) dragEvent.getDragboard().getFiles();
-    }
+//    public void mvMyVideoOnDragDropped(DragEvent dragEvent) {
+//        if (dragEvent.getDragboard().hasFiles()) {
+//            dragEvent.acceptTransferModes(TransferMode.ANY);
+//        }
+//    }
+//
+//    public void mvMyVideoOnDragDropped(DragEvent dragEvent) throws FileNotFoundException {
+//        List<File> files = dragEvent.getDragboard().getFiles();
+//        mediaPlayer = new MediaPlayer(new Media(new FileInputStream(files.get(0)).toString()));
+//    }
 }
