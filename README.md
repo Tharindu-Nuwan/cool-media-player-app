@@ -18,6 +18,13 @@ Cool Media Player App is a versatile multimedia playback application designed to
 * .mp3
 * .wav
 
+- **User-Friendly Interface**: The player boasts an intuitive and straightforward user interface, ensuring a hassle-free experience for both beginners and advanced users.
+
+- **Lightweight**: Designed to be efficient and light on system resources, this player can run smoothly on various platforms.
+
+- **Open Source**: Feel free to explore, modify, and contribute to the codebase. This project is open-source and welcomes collaboration.
+
+
 ---
 ## Version
 
