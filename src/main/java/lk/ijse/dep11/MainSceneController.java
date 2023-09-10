@@ -7,7 +7,9 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -16,6 +18,7 @@ import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.util.List;
 
 public class MainSceneController {
     public AnchorPane root;
@@ -37,6 +40,8 @@ public class MainSceneController {
     private String path;
     private MediaPlayer mediaPlayer;
 
+    File file;
+
     public void initialize() {
         slrVolume.setValue(100.0);
         lblTitle.setVisible(true);
@@ -57,7 +62,7 @@ public class MainSceneController {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Video Files", "*.mp4", "*.avi", "*.mkv"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Mp3 Files", "*.mp3"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Wave Files", "*.wav"));
-        File file = fileChooser.showOpenDialog(root.getScene().getWindow());
+        file = fileChooser.showOpenDialog(root.getScene().getWindow());
 
         if (file != null) {
             path = file.toURI().toString();
@@ -173,5 +178,14 @@ public class MainSceneController {
             mediaPlayer.setVolume(slrVolume.getValue() / 100);
             lblVolume.setText(String.format("%.0f",slrVolume.getValue()).concat("%"));
         }
+    }
+
+
+    public void rootOnDragOver(DragEvent dragEvent) {
+//        dragEvent.acceptTransferModes(TransferMode.ANY);
+    }
+
+    public void rootOnDragDropped(DragEvent dragEvent) {
+//        file = (File) dragEvent.getDragboard().getFiles();
     }
 }
