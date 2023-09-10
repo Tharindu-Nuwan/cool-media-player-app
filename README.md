@@ -1,11 +1,11 @@
 # Cool Media Player
 
 ---
-### Overview
+## Overview
 
 Cool Media Player App is a versatile multimedia playback application designed to provide a seamless and enjoyable experience for users to play their digital media files. Whether you're looking to listen to your favorite music or watch videos our app has you covered.
 
-### Features
+## Features
 
 - **Playback**: Play a wide range of audio and video file formats.
 
@@ -19,14 +19,14 @@ Cool Media Player App is a versatile multimedia playback application designed to
 * .wav
 
 ---
-### Version
+## Version
 
 **0.1.0**
 
 ---
 
 
-### License
+## License
 
 Copyright &copy; 2023 Tharindu Nuwan Madhushanka. All Rights Reserved.
 
