@@ -74,30 +74,39 @@ public class MainSceneController {
             mediaPlayer = new MediaPlayer(media);
             mvMyVideo.setMediaPlayer(mediaPlayer);
             mediaPlayer.setVolume(slrVolume.getValue() * 100);
-            DoubleProperty widthProperty = mvMyVideo.fitWidthProperty();
-            DoubleProperty heightProperty = mvMyVideo.fitHeightProperty();
-            widthProperty.bind(Bindings.selectDouble(mvMyVideo.sceneProperty(), "width"));
-            heightProperty.bind(Bindings.selectDouble(mvMyVideo.sceneProperty(), "height"));
 
-            mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
-                @Override
-                public void changed(ObservableValue<? extends Duration> observableValue, Duration duration, Duration t1) {
-                    slrSeek.setValue(t1.toSeconds());
-                }
-            });
+            setVideoOnScreen();
 
-            mediaPlayer.setOnReady(new Runnable() {
-                @Override
-                public void run() {
-                    Duration totalDuration = mediaPlayer.getTotalDuration();
-                    slrSeek.setMax(totalDuration.toSeconds());
-                }
-            });
         }else {
             path = null;
             lblTitle.setVisible(true);
             imgBackground.setDisable(false);
         }
+
+        root.setOnDragOver(event -> {
+            if (event.getDragboard().hasFiles()) {
+                event.acceptTransferModes(TransferMode.COPY);
+            }
+            event.consume();
+        });
+
+        root.setOnDragDropped(event -> {
+            List<File> files = event.getDragboard().getFiles();
+            if (!files.isEmpty()) {
+                File file1 = files.get(0);
+                path = file1.toURI().toString();
+                mvMyVideo.setVisible(true);
+                imgBackground.setDisable(true);
+                Media media = new Media(path);
+                mediaPlayer = new MediaPlayer(media);
+                mvMyVideo.setMediaPlayer(mediaPlayer);
+                mediaPlayer.setVolume(slrVolume.getValue() / 100);
+
+                setVideoOnScreen();
+            }
+            event.setDropCompleted(true);
+            event.consume();
+        });
     }
 
     public void btnPlayOnAction(ActionEvent actionEvent) {
@@ -183,27 +192,46 @@ public class MainSceneController {
     }
 
     public void rootOnDragDropped(DragEvent dragEvent) throws FileNotFoundException {
-//        List<File> files = dragEvent.getDragboard().getFiles();
-//        for (File file1 : files) {
-//            mediaPlayer = new MediaPlayer(new Media(file1.getAbsolutePath()));
-//
-//        }
+        List<File> files = dragEvent.getDragboard().getFiles();
+        if (!files.isEmpty()) {
+            File file1 = files.get(0);
+            path = file1.toURI().toString();
+            mvMyVideo.setVisible(true);
+            imgBackground.setDisable(true);
+            Media media = new Media(path);
+            mediaPlayer = new MediaPlayer(media);
+            mvMyVideo.setMediaPlayer(mediaPlayer);
+            mediaPlayer.setVolume(slrVolume.getValue() / 100);
+
+            setVideoOnScreen();
+        }
     }
 
     public void rootOnDragOver(DragEvent dragEvent) {
-//        if (dragEvent.getDragboard().hasFiles()) {
-//            dragEvent.acceptTransferModes(TransferMode.ANY);
-//        }
+        if (dragEvent.getDragboard().hasFiles()) {
+            dragEvent.acceptTransferModes(TransferMode.ANY);
+        }
     }
 
-//    public void mvMyVideoOnDragDropped(DragEvent dragEvent) {
-//        if (dragEvent.getDragboard().hasFiles()) {
-//            dragEvent.acceptTransferModes(TransferMode.ANY);
-//        }
-//    }
-//
-//    public void mvMyVideoOnDragDropped(DragEvent dragEvent) throws FileNotFoundException {
-//        List<File> files = dragEvent.getDragboard().getFiles();
-//        mediaPlayer = new MediaPlayer(new Media(new FileInputStream(files.get(0)).toString()));
-//    }
+    private void setVideoOnScreen() {
+        DoubleProperty widthProperty = mvMyVideo.fitWidthProperty();
+        DoubleProperty heightProperty = mvMyVideo.fitHeightProperty();
+        widthProperty.bind(Bindings.selectDouble(mvMyVideo.sceneProperty(), "width"));
+        heightProperty.bind(Bindings.selectDouble(mvMyVideo.sceneProperty(), "height"));
+
+        mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
+            @Override
+            public void changed(ObservableValue<? extends Duration> observableValue, Duration duration, Duration t1) {
+                slrSeek.setValue(t1.toSeconds());
+            }
+        });
+
+        mediaPlayer.setOnReady(new Runnable() {
+            @Override
+            public void run() {
+                Duration totalDuration = mediaPlayer.getTotalDuration();
+                slrSeek.setMax(totalDuration.toSeconds());
+            }
+        });
+    }
 }
