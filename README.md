@@ -36,8 +36,8 @@ Cool Media Player App is a versatile multimedia playback application designed to
     ```bash
     git clone https://github.com/Tharindu-Nuwan/cool-media-player-app.git
     ```
-2. Copy and Extract the _**cool-media-player.tar.gz**_ file any where you want.
-3. Double-click on _**cool-media-player(v1.0.0)**_. That will launch the application.
+2. Double-click on _**cool-media-player(v1.0.0)**_ file in the downloaded repository. That will launch the application.
+
 ### Usage
 
 1. Launch the application.
