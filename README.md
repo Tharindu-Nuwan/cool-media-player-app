@@ -5,6 +5,8 @@
 
 Cool Media Player App is a versatile multimedia playback application designed to provide a seamless and enjoyable experience for users to play their digital media files. Whether you're looking to listen to your favorite music or watch videos our app has you covered.
 
+![User-Interface-Image](src/main/resources/images/ss/cool-media-player-ui.png)
+---
 ## Features
 
 - **Intuitive User Interface:** Clean and user-friendly design for seamless navigation.
@@ -34,6 +36,8 @@ Cool Media Player App is a versatile multimedia playback application designed to
     ```bash
     git clone https://github.com/Tharindu-Nuwan/cool-media-player-app.git
     ```
+2. Copy and Extract the _**cool-media-player.tar.gz**_ file any where you want.
+3. Double-click on _**cool-media-player(v1.0.0)**_. That will launch the application.
 ### Usage
 
 1. Launch the application.
@@ -41,15 +45,14 @@ Cool Media Player App is a versatile multimedia playback application designed to
 3. Use the play, pause, volume, and seek controls to interact with your media files.
 4. Enjoy a smooth multimedia experience!
 ---
-## Contributing
-- Contributions are welcome! If you have suggestions, find bugs, or want to add features, please open an issue or submit a pull request.
----
+### Contributing
+Contributions are welcome! If you have suggestions, find bugs, or want to add features, please open an issue or submit a pull request.
+
 ## Version
 
 **1.0.0**
 
 ---
-
 
 ## License
 
