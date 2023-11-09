@@ -16,16 +16,11 @@
 
 <AnchorPane fx:id="root" onDragDropped="#rootOnDragDropped" onDragOver="#rootOnDragOver" prefHeight="457.0" prefWidth="696.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.MainSceneController">
    <children>
-      <Label fx:id="lblTitle" alignment="CENTER" prefHeight="47.0" prefWidth="643.0" style="-fx-background-color: white; -fx-background-radius: 25;" text="Cool Media Player" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="50.0">
-         <font>
-            <Font name="DejaVu Serif Bold" size="24.0" />
-         </font>
-      </Label>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="imgBackground" fitHeight="271.0" fitWidth="391.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 75;">
+                  <ImageView fx:id="imgBackground" fitHeight="425.0" fitWidth="829.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 75;">
                      <image>
                         <Image url="@../images/background.png" />
                      </image>

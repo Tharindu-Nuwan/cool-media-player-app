@@ -6,6 +6,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
@@ -36,9 +37,7 @@ public class MainSceneController {
     public Slider slrSeek;
     public Slider slrVolume;
     public ImageView imgBackground;
-    public Label lblTitle;
     public Label lblVolume;
-
     private String path;
     private MediaPlayer mediaPlayer;
 
@@ -46,7 +45,6 @@ public class MainSceneController {
 
     public void initialize() {
         slrVolume.setValue(100.0);
-        lblTitle.setVisible(true);
         imgBackground.setDisable(false);
         btnBrowse.setTooltip(new Tooltip("Browse media files"));
         btnPlay.setTooltip(new Tooltip("Play media file"));
@@ -79,7 +77,6 @@ public class MainSceneController {
 
         }else {
             path = null;
-            lblTitle.setVisible(true);
             imgBackground.setDisable(false);
         }
 
@@ -130,7 +127,6 @@ public class MainSceneController {
         if (path != null) {
             mediaPlayer.stop();
             mvMyVideo.setVisible(false);
-            lblTitle.setVisible(true);
             imgBackground.setDisable(false);
         }
     }
@@ -204,6 +200,7 @@ public class MainSceneController {
             mediaPlayer.setVolume(slrVolume.getValue() / 100);
 
             setVideoOnScreen();
+            btnPlay.fire();
         }
     }
 
@@ -234,4 +231,5 @@ public class MainSceneController {
             }
         });
     }
+
 }
